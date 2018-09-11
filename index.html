@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Vue生命周期</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app"></div>
+    <script>
+       var vm = new Vue({
+           el:'#app',
+           beforeCreate(){
+
+           },
+           created(){
+
+           },
+           beforeMount(){
+
+           },
+           mounted(){
+
+           },
+           //调用实例vm.$destroy()方法时下面两个周期函数
+           beforeDestroy(){
+
+           },
+           destroyed(){
+
+           },
+           //数据发生改变是执行下面两个周期函数
+           beforeUpdate(){
+
+           },
+           updated(){
+
+           }
+       });
+    </script>
+</body>
+</html>
