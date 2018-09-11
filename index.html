@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>计算属性和监听属性</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        {{fullName}}
+    </div>
+    <script>    
+        var vm = new Vue({
+            el:'#app',
+            //计算属性
+            computed: {
+                fullName:function(){
+                   return this.firstName + " " + this.lastName
+                }
+            },
+            //监听属性
+            watch: {
+                fisrtName:function(){
+
+                },
+                lastName:function(){
+
+                }
+            },
+            data: function(){ 
+                return {
+                    firstName:'Dell',
+                    lastName:'Lee'
+                }
+            },
+            methods: {
+
+            }
+        });
+    </script>
+</body>
+</html>
