@@ -16,8 +16,16 @@
             el:'#app',
             //计算属性
             computed: {
-                fullName:function(){
-                   return this.firstName + " " + this.lastName
+                // fullName:function(){
+                //    return this.firstName + " " + this.lastName
+                // }
+                fullName: {
+                    get: function(){
+
+                    },
+                    set: function(value){
+
+                    }
                 }
             },
             //监听属性
