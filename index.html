@@ -8,6 +8,45 @@
     <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
 </head>
 <body>
-    
+    <div id="app">
+        <counter :count="3" @change="handleChange"></counter> 
+        <counter :count="4" @change="handleChange"></counter>
+        <div>{{total}}</div>
+    </div>
+    <script>
+        var counter = {
+          props:{
+              count:Number
+          },
+          data:function(){
+              return {
+                  number:this.count
+              }
+          },
+          template:'<div @click="handleClick">{{number}}</div>',
+          methods:{
+               handleClick:function(){
+                   this.number  = this.number + 2;
+                   this.$emit('change',2)
+               }
+          }
+        }
+        var vm = new Vue({
+            el:'#app',
+            data:function(){
+                return {
+                    total:7
+                }   
+            },
+            components:{
+                counter:counter
+            },
+            methods:{
+                handleChange:function(step){
+                    this.total = this.total + step
+                }
+            }
+        });
+    </script>
 </body>
 </html>
