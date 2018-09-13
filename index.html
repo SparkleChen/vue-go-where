@@ -4,9 +4,43 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>总线机制</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
 </head>
 <body>
-    
+    <div id="app">
+        <Child content="Like"></Child>
+        <Child content="Me"></Child>
+    </div>
+    <script>
+    Vue.prototype.bus = new Vue();
+    Vue.component('child',{
+        props:{
+            content:{
+                type:String
+            }
+        },
+        data:function(){
+            return {
+               self_content:this.content 
+            }
+        },
+        mounted:function(){
+            var _this = this;
+            this.bus.$on('change',function(msg){
+                _this.self_content = msg;
+            })
+        },
+        methods:{
+            handleClick:function(){
+                this.bus.$emit('change',this.self_content)
+            }
+        },
+        template:'<div @click="handleClick">{{self_content}}</div>'
+    })
+    var vm = new Vue({
+        el:'#app',
+    });
+    </script>
 </body>
 </html>
