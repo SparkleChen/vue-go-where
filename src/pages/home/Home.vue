@@ -18,10 +18,10 @@ import HomeWeekend from './components/Weekend'
 import HomeAd from './components/Ad'
 import axios from 'axios'
 import { mapState } from 'vuex'
-export default {
+export default { 
   name: 'Home',
   components: {
-    HomeHeader,
+    HomeHeader,  
     HomeSwiper,
     HomeIcons,
     HomeRecommand,
